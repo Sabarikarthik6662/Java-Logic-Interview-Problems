@@ -1,0 +1,53 @@
+📝 Problem Statement
+
+Halsey receives a string S containing only X and Y.
+An ideal string must alternate between X and Y.
+
+She can remove characters one by one.
+Find the minimum number of removals required.
+
+🔢 Input Specification
+
+input1: String S
+
+🎯 Output Specification
+
+Return the number of removals
+
+💡 Approach
+
+Traverse the string
+
+If two adjacent characters are the same → removal needed
+
+Count such occurrences
+
+💻 Java Code
+import java.util.Scanner;
+
+public class IdealString {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String S = sc.next();
+        int removals = 0;
+
+        for (int i = 1; i < S.length(); i++) {
+            if (S.charAt(i) == S.charAt(i - 1)) {
+                removals++;
+            }
+        }
+
+        System.out.println(removals);
+        sc.close();
+    }
+}
+
+🧪 Sample Input
+XYXXXY
+
+✅ Output
+
+2
+2
