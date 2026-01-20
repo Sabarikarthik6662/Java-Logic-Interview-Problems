@@ -1,0 +1,97 @@
+📝 Problem Statement
+
+You are a product designer working for a company that manufactures various products.
+You are given two strings, each representing a set of product label characters.
+
+Your task is to find and return an integer value representing the maximum possible length of a product label that can be created by:
+
+Taking characters individually from the first string, or
+
+Taking characters individually from the second string, or
+
+Combining characters from both strings
+
+Conditions:
+
+All characters in a product label must be unique
+
+No character should be repeated
+
+🔢 Input Specification
+
+input1: A string value
+
+input2: A string value
+
+🎯 Output Specification
+
+Return an integer value representing the maximum possible length of the product label formed under the given conditions.
+
+🧪 Example
+Input
+hea
+oed
+
+Output
+5
+
+💡 Explanation
+
+Characters from first string: h, e, a
+
+Characters from second string: o, e, d
+
+Combined characters: h, e, a, o, e, d
+
+Unique characters: h, e, a, o, d
+
+✔ Total unique characters = 5
+
+🧠 Approach
+
+Use a Set to store characters
+
+Add all characters from both strings into the set
+
+Since a set stores only unique elements, duplicates are automatically removed
+
+The size of the set gives the required answer
+
+💻 Java Code (User Defined Input)
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+public class ProductLabelDesigner {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Input strings
+        String input1 = sc.next();
+        String input2 = sc.next();
+
+        Set<Character> uniqueChars = new HashSet<>();
+
+        // Add characters from first string
+        for (char ch : input1.toCharArray()) {
+            uniqueChars.add(ch);
+        }
+
+        // Add characters from second string
+        for (char ch : input2.toCharArray()) {
+            uniqueChars.add(ch);
+        }
+
+        // Output result
+        System.out.println(uniqueChars.size());
+
+        sc.close();
+    }
+}
+
+⏱️ Complexity Analysis
+
+Time Complexity: O(N + M)
+
+Space Complexity: O(1) (limited character set)
