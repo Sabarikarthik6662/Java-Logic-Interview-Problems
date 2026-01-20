@@ -1,0 +1,53 @@
+📝 Problem Statement
+
+You are organizing a field trip and want to divide students into two equal-sized groups:
+
+One group with even-numbered IDs
+
+One group with odd-numbered IDs
+
+Your task is to return the maximum number of students that can be included in both groups.
+
+🔢 Input Specification
+
+input1: Integer N, number of students
+
+input2: Integer array of student IDs
+
+🎯 Output Specification
+
+Return the maximum number of students included
+
+💡 Approach
+
+Count even IDs
+
+Count odd IDs
+
+Result = 2 × min(evenCount, oddCount)
+
+💻 Java Code
+import java.util.Scanner;
+
+public class StudentGroupDivision {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int N = sc.nextInt();
+        int evenCount = 0, oddCount = 0;
+
+        for (int i = 0; i < N; i++) {
+            int id = sc.nextInt();
+            if (id % 2 == 0)
+                evenCount++;
+            else
+                oddCount++;
+        }
+
+        int result = 2 * Math.min(evenCount, oddCount);
+        System.out.println(result);
+
+        sc.close();
+    }
+}
