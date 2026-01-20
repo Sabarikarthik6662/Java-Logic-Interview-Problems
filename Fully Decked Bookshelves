@@ -1,0 +1,58 @@
+Problem Statement:
+
+You need to arrange books in a library with the help of students.
+Each student has a collection of books. Bookshelves can hold a maximum of K books and must be fully filled to be counted.
+
+Extra books carry forward to the next student
+
+If books are insufficient, they also carry forward
+
+Leftover books after the last student are discarded
+
+Input Specification:
+
+input1: Integer representing number of students
+
+input2: Integer K, shelf capacity
+
+input3: Integer array representing books each student has
+
+Output Specification:
+
+Return the total number of fully filled bookshelves
+
+Approach:
+
+Maintain a running sum of books
+
+Whenever total ≥ K → form a shelf
+
+Carry forward remaining books using modulus (%)
+
+Program:
+
+import java.util.Scanner;
+public class BookshelfCounter {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int students = sc.nextInt();
+        int K = sc.nextInt();
+
+        int currentBooks = 0;
+        int shelves = 0;
+
+        for (int i = 0; i < students; i++) {
+            currentBooks += sc.nextInt();
+            shelves += currentBooks / K;
+            currentBooks = currentBooks % K;
+        }
+
+        System.out.println(shelves);
+        sc.close();
+    }
+}
+
+
+
